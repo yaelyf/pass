@@ -1,22 +1,23 @@
 import './App.css';
 import { useState } from 'react';
-import Message from './Message';
+import CheckPassword from './CheckPassword';
 
 
 function App() {
   const [password, setPassword] = useState("")
-  const [disable, setDisable] = useState(true)
+  const [disableSubmit, setDisableSubmit] = useState(true)
 
-  function handlePassword(e){
-    setPassword(String(e.target.value))
+  function handlePassword(event){
+    setPassword(String(event.target.value))
   }
 
   return (
-    <div className="App">
+    <div className='App'>
       <p>
-        <input type="password" value = {password} onChange = {handlePassword}></input>
-        <button disabled = {disable}>Submit!</button>
-        <Message password = {password} checkPassword = {handlePassword} setPassword = {setPassword} setDisable = {setDisable}/> 
+        <h1>Enter new password:</h1>
+        <input type = "password" value = {password} onChange = {handlePassword}></input>
+        <button disabled = {disableSubmit}>Submit!</button>
+        <CheckPassword password = {password} disableSubmit = {setDisableSubmit}></CheckPassword>
       </p>
     </div>
   );
