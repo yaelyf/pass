@@ -12,13 +12,11 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      <p>
+    <div className="App">
         <h1>Enter new password:</h1>
         <input type = "password" value = {password} onChange = {handlePassword}></input>
         <button disabled = {disableSubmit}>Submit!</button>
-        <CheckPassword password = {password} disableSubmit = {setDisableSubmit}></CheckPassword>
-      </p>
+        <CheckPassword password = {password} prevent = {setDisableSubmit}></CheckPassword>
     </div>
   );
 }
