@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 
 function CheckPassword(props){
-    const {password, disable} = props
-    const [message, setMessage] = useState('Week')
+    const {password, prevent} = props;
+    const [message, setMessage] = useState("Weak")
 
     useEffect(()=>{
         if(password.length <=2){
             setMessage("Week")
-            disable(true)
+            prevent(true)
         }
         else if(password.length >2 && password.length <= 6){
             setMessage("Medium")
-            disable(false)
+            prevent(false)
         }
         else {
             setMessage("Strong")
-            disable(false)
+            prevent(false)
         }
-    }, [password, disable])
+    }, [password, prevent])
 
     return (
         <p>{message} password</p>
